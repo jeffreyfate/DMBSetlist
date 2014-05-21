@@ -47,6 +47,7 @@ public class DmbSetlist {
     private static final String ROBOTO_FONT_FILENAME = "/home/roboto.ttf";
     
     private static final int SETLIST_FONT_SIZE = 21;
+    private static final int SETLIST_VERTICAL_OFFSET = 70;
     
     private static Setlist setlist;
     
@@ -76,9 +77,10 @@ public class DmbSetlist {
 		setupAnswerMap();
 		setlist = new Setlist(url, duration, isDev, setupTweet(false),
 				setupTweet(true), SETLIST_JPG_FILENAME, ROBOTO_FONT_FILENAME,
-				SETLIST_FONT_SIZE, isDev ? SETLIST_FILENAME_DEV :
-					SETLIST_FILENAME, isDev ? LAST_SONG_FILENAME_DEV :
-					LAST_SONG_FILENAME, SETLIST_DIR, nameList, TRIVIA2_ACCOUNT);
+				SETLIST_FONT_SIZE, SETLIST_VERTICAL_OFFSET,
+				isDev ? SETLIST_FILENAME_DEV : SETLIST_FILENAME,
+				isDev ? LAST_SONG_FILENAME_DEV : LAST_SONG_FILENAME,
+				SETLIST_DIR, nameList, TRIVIA2_ACCOUNT);
 		setlist.startSetlist();
 	}
 	
@@ -352,6 +354,7 @@ public class DmbSetlist {
     	nameList.add(tempList);
     	tempList = new ArrayList<String>(0);
     	tempList.add("ymdt");
+    	tempList.add("die trying");
     	tempList.add("you might die trying");
     	nameList.add(tempList);
     	tempList = new ArrayList<String>(0);
