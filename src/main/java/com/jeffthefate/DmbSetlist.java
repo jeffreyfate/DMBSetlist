@@ -52,7 +52,8 @@ public class DmbSetlist {
     private static Setlist setlist;
     
     private static ArrayList<ArrayList<String>> nameList = new ArrayList<ArrayList<String>>(0);
-	
+	private static ArrayList<String> symbolList = new ArrayList<String>(0);
+    
 	/**
 	 * @param args
 	 */
@@ -80,7 +81,7 @@ public class DmbSetlist {
 				SETLIST_FONT_SIZE, SETLIST_VERTICAL_OFFSET,
 				isDev ? SETLIST_FILENAME_DEV : SETLIST_FILENAME,
 				isDev ? LAST_SONG_FILENAME_DEV : LAST_SONG_FILENAME,
-				SETLIST_DIR, nameList, TRIVIA2_ACCOUNT);
+				SETLIST_DIR, nameList, symbolList, TRIVIA2_ACCOUNT);
 		setlist.startSetlist();
 	}
 	
@@ -99,6 +100,10 @@ public class DmbSetlist {
     	ArrayList<String> tempList = new ArrayList<String>(0);
     	tempList.add("belly belly nice");
     	tempList.add("bbn");
+    	nameList.add(tempList);
+    	tempList = new ArrayList<String>(0);
+    	tempList.add("the riff");
+    	tempList.add("riff");
     	nameList.add(tempList);
     	tempList = new ArrayList<String>(0);
     	tempList.add("true");
@@ -488,6 +493,20 @@ public class DmbSetlist {
     	tempList.add("all along the watchtower");
     	tempList.add("aatw");
     	nameList.add(tempList);
+    	tempList = new ArrayList<String>(0);
+    	tempList.add("sugarman");
+    	tempList.add("sugar man");
+    	nameList.add(tempList);
+    	symbolList.add("*");
+    	symbolList.add("^");
+    	symbolList.add("~");
+    	symbolList.add("+");
+    	symbolList.add("$");
+    	symbolList.add("%");
+    	symbolList.add("§");
+    	symbolList.add("¤");
+    	symbolList.add("»");
+    	
     }
 
 }
