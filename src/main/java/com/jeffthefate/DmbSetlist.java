@@ -45,6 +45,7 @@ public class DmbSetlist {
     		"last_song_dev";
     private static final String SETLIST_JPG_FILENAME = "/home/setlist.jpg";
     private static final String ROBOTO_FONT_FILENAME = "/home/roboto.ttf";
+    private static final String BAN_FILE = "/home/banlist.ser";
     
     private static final int SETLIST_FONT_SIZE = 21;
     private static final int SETLIST_VERTICAL_OFFSET = 70;
@@ -57,6 +58,7 @@ public class DmbSetlist {
 	/**
 	 * @param args
 	 */
+	// TODO Merge Trivia & Setlist somehow to have one stream
 	public static void main(String[] args) {
 		String url = null;
     	long duration = 0;
@@ -81,7 +83,7 @@ public class DmbSetlist {
 				SETLIST_FONT_SIZE, SETLIST_VERTICAL_OFFSET,
 				isDev ? SETLIST_FILENAME_DEV : SETLIST_FILENAME,
 				isDev ? LAST_SONG_FILENAME_DEV : LAST_SONG_FILENAME,
-				SETLIST_DIR, nameList, symbolList, TRIVIA2_ACCOUNT);
+				SETLIST_DIR, BAN_FILE, nameList, symbolList, TRIVIA2_ACCOUNT);
 		setlist.startSetlist();
 	}
 	
@@ -497,15 +499,18 @@ public class DmbSetlist {
     	tempList.add("sugarman");
     	tempList.add("sugar man");
     	nameList.add(tempList);
+    	tempList = new ArrayList<String>(0);
+    	tempList.add("dreamgirl");
+    	tempList.add("dream girl");
+    	nameList.add(tempList);
     	symbolList.add("*");
-    	symbolList.add("^");
+		symbolList.add("+");
     	symbolList.add("~");
-    	symbolList.add("+");
-    	symbolList.add("$");
-    	symbolList.add("%");
+    	symbolList.add("^");
     	symbolList.add("§");
     	symbolList.add("¤");
-    	symbolList.add("»");
+    	symbolList.add("$");
+    	symbolList.add("%");
     	
     }
 
