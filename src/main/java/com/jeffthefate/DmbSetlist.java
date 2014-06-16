@@ -47,8 +47,8 @@ public class DmbSetlist {
     private static final String ROBOTO_FONT_FILENAME = "/home/roboto.ttf";
     private static final String BAN_FILE = "/home/banlist.ser";
     
-    private static final int SETLIST_FONT_SIZE = 21;
-    private static final int SETLIST_VERTICAL_OFFSET = 70;
+    private static final int SETLIST_FONT_SIZE = 35;
+    private static final int SETLIST_VERTICAL_OFFSET = 180;
     
     private static Setlist setlist;
     
@@ -61,11 +61,11 @@ public class DmbSetlist {
 	// TODO Merge Trivia & Setlist somehow to have one stream
 	public static void main(String[] args) {
 		String url = null;
-    	long duration = 0;
+    	int duration = 0;
     	boolean isDev = false;
 		try {
 			if (args.length > 0)
-				duration = Long.valueOf(args[0]);
+				duration = Integer.valueOf(args[0]);
 			if (args.length > 1)
 				isDev = Boolean.valueOf(args[1]);
 			if (args.length > 2)
@@ -78,12 +78,13 @@ public class DmbSetlist {
 			CURR_ACCESS_SECRET = DEV_ACCESS_SECRET;
 		}
 		setupAnswerMap();
-		setlist = new Setlist(url, duration, isDev, setupTweet(false),
+		setlist = new Setlist(url, isDev, setupTweet(false),
 				setupTweet(true), SETLIST_JPG_FILENAME, ROBOTO_FONT_FILENAME,
 				SETLIST_FONT_SIZE, SETLIST_VERTICAL_OFFSET,
 				isDev ? SETLIST_FILENAME_DEV : SETLIST_FILENAME,
 				isDev ? LAST_SONG_FILENAME_DEV : LAST_SONG_FILENAME,
 				SETLIST_DIR, BAN_FILE, nameList, symbolList, TRIVIA2_ACCOUNT);
+		setlist.setDuration(duration);
 		setlist.startSetlist();
 	}
 	
@@ -355,6 +356,7 @@ public class DmbSetlist {
     	tempList.add("sawg");
     	nameList.add(tempList);
     	tempList = new ArrayList<String>(0);
+    	tempList.add("stolen");
     	tempList.add("stolen away");
     	tempList.add("stolen away on 55th & 3rd");
     	tempList.add("stolen away on 55th and 3rd");
@@ -502,6 +504,12 @@ public class DmbSetlist {
     	tempList = new ArrayList<String>(0);
     	tempList.add("dreamgirl");
     	tempList.add("dream girl");
+    	nameList.add(tempList);
+    	tempList = new ArrayList<String>(0);
+    	tempList.add("#36");
+    	tempList.add("#36 jam");
+    	tempList.add("36");
+    	tempList.add("36 jam");
     	nameList.add(tempList);
     	symbolList.add("*");
 		symbolList.add("+");
